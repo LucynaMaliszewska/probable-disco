@@ -1,5 +1,5 @@
 class Todo < ApplicationRecord
-  def hello
+  def stop
     "hello#{self.name}"
   end
   def say(text)
