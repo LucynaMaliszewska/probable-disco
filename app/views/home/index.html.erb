@@ -1,0 +1,22 @@
+<header class='todo-header'>
+  <h1> my first lesson</h1>
+</header>
+   <section class='todo-main'>
+       <%= form_for @todo do |form| %>
+         <%= form.text_field :name %>
+         <%= form.label :urgent, "pilne" %>
+         <%= form.check_box :urgent %>
+         <%= form.submit %>
+       <% end %>
+       <ul class='todo-list'>
+         <% @todos.each do |todo| %>
+        <li class=<%= "urgent" if todo.urgent? %> >
+          <%= todo.name %>
+          <%= link_to "X", todo_path(todo),method: :delete,data: {confirm:"chcesz?"} %>
+        </li>
+         <% end %>
+       </ul>
+   </section>
+   <footer class='todo-footer'>
+     Copyright 2019 • Rails Girls Tricity
+   </footer>
